@@ -1,0 +1,25 @@
+# Copy the lines below into your local.properties (next to settings.gradle).
+# Android Studio already puts sdk.dir in that file - keep it and just add these.
+# local.properties is git-ignored, so your M-Pesa secrets are never committed.
+
+# ---- Safaricom Daraja (https://developer.safaricom.co.ke) ----
+# sandbox  -> https://sandbox.safaricom.co.ke   (testing)
+# production -> https://api.safaricom.co.ke     (real phones, real money; needs Go Live)
+MPESA_ENV=sandbox
+
+# From Daraja portal > My Apps > your app
+MPESA_CONSUMER_KEY=PASTE_YOUR_CONSUMER_KEY
+MPESA_CONSUMER_SECRET=PASTE_YOUR_CONSUMER_SECRET
+
+# Sandbox Lipa Na M-Pesa Online test values published in the Daraja docs:
+MPESA_SHORTCODE=174379
+MPESA_PASSKEY=bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919
+
+# CustomerPayBillOnline (Paybill)  or  CustomerBuyGoodsOnline (Till number)
+MPESA_TRANSACTION_TYPE=CustomerPayBillOnline
+# Paybill: same as shortcode. Till: the till number.
+MPESA_PARTY_B=174379
+
+# Daraja requires a public https URL even though this app confirms payment by
+# polling the STK Push Query API (it never receives the callback itself).
+MPESA_CALLBACK_URL=https://example.com/mpesa/callback

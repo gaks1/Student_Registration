@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // OPEN RULES - for the coursework demo only. See "Limitations" in the README.
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

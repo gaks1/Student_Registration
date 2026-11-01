@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_sync_banner" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                style="@style/StepHeader"
+                android:text="@string/step1_header" />
+
+            <TextView
+                style="@style/StepHint"
+                android:text="@string/step1_hint" />
+
+            <com.google.android.material.card.MaterialCardView style="@style/CardStyle">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Field"
+                        android:hint="@string/hint_full_names">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etFullNames"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName|textCapWords" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Field"
+                        android:hint="@string/hint_id_no">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etIdNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:maxLength="15" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Field"
+                        android:hint="@string/hint_reg_no">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRegNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapCharacters" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        style="@style/Label"
+                        android:text="@string/label_gender" />
+
+                    <RadioGroup
+                        android:id="@+id/rgGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbMale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:text="@string/gender_male" />
+
+                        <RadioButton
+                            android:id="@+id/rbFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/gender_female" />
+                    </RadioGroup>
+
+                    <TextView
+                        style="@style/Label"
+                        android:text="@string/label_course" />
+
+                    <Spinner
+                        android:id="@+id/spCourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        style="@style/Label"
+                        android:text="@string/label_department" />
+
+                    <Spinner
+                        android:id="@+id/spDepartment"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveRegistration"
+                style="@style/PrimaryButton"
+                android:text="@string/btn_save_continue" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewSummary"
+                style="@style/SecondaryButton"
+                android:text="@string/btn_view_summary" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Edit these lists to match the University's real programmes, departments and hostels. -->
+<resources>
+    <string-array name="courses">
+        <item>-- Select course --</item>
+        <item>BSc Information Systems and Technology</item>
+        <item>BSc Applied Computer Technology</item>
+        <item>BSc Computer Science</item>
+        <item>BSc Data Science and Analytics</item>
+        <item>BSc Software Engineering</item>
+        <item>BA Business Administration</item>
+        <item>BSc Finance</item>
+        <item>BSc Accounting</item>
+        <item>BA International Relations</item>
+        <item>BA Psychology</item>
+        <item>BA Journalism and Media</item>
+        <item>BSc Nursing</item>
+    </string-array>
+
+    <string-array name="departments">
+        <item>-- Select department --</item>
+        <item>Computer Science</item>
+        <item>Information Systems and Technology</item>
+        <item>Applied Computer Technology</item>
+        <item>Mathematics and Statistics</item>
+        <item>Business Administration</item>
+        <item>Finance and Accounting</item>
+        <item>Humanities and Social Sciences</item>
+        <item>Psychology</item>
+        <item>Communication and Media</item>
+        <item>Health Sciences</item>
+    </string-array>
+
+    <string-array name="hostel_locations">
+        <item>-- Select hostel location --</item>
+        <item>USIU Campus Hostels</item>
+        <item>Thome Estate</item>
+        <item>Roysambu</item>
+        <item>Kasarani</item>
+        <item>Garden Estate</item>
+        <item>Ruaraka</item>
+        <item>Zimmerman</item>
+    </string-array>
+
+    <string-array name="room_types">
+        <item>-- Select room type --</item>
+        <item>Single room</item>
+        <item>Bedsitter</item>
+        <item>1 Bedroom</item>
+        <item>2 Bedroom</item>
+        <item>3 Bedroom</item>
+    </string-array>
+</resources>

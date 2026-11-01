@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">USIU Registration</string>
+
+    <!-- Screen titles -->
+    <string name="title_registration">Student Registration</string>
+    <string name="title_library">Library Request</string>
+    <string name="title_hostel">Hostel Booking</string>
+    <string name="title_payment">Pay Fees (M-Pesa)</string>
+    <string name="title_summary">Summary and Print</string>
+
+    <!-- Menu -->
+    <string name="menu_registration">1. Registration</string>
+    <string name="menu_library">2. Library</string>
+    <string name="menu_hostel">3. Hostel</string>
+    <string name="menu_payment">4. Payment</string>
+    <string name="menu_summary">Summary and print</string>
+
+    <!-- Sync banner -->
+    <string name="sync_checking">Checking connection...</string>
+
+    <!-- Activity 1 -->
+    <string name="step1_header">Step 1 of 4 - Your details</string>
+    <string name="step1_hint">Fill in your details exactly as they appear on your admission letter. You can do this offline.</string>
+    <string name="hint_full_names">Full names</string>
+    <string name="hint_id_no">ID number</string>
+    <string name="hint_reg_no">Registration number</string>
+    <string name="label_gender">Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="label_course">Course</string>
+    <string name="label_department">Department</string>
+    <string name="btn_save_continue">Save and continue</string>
+    <string name="btn_view_summary">View summary / print</string>
+
+    <!-- Activity 2 -->
+    <string name="step2_header">Step 2 of 4 - Library request</string>
+    <string name="step2_hint">Pick a book from the list (or choose Other and type it in), then choose the dates.</string>
+    <string name="label_book">Book</string>
+    <string name="hint_isbn">Book ISBN</string>
+    <string name="hint_author">Author</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_date_borrowed">Date borrowed</string>
+    <string name="hint_date_return">Date of return</string>
+    <string name="hint_student_id_no">Student ID number</string>
+    <string name="btn_request_book">Request book</string>
+    <string name="btn_skip">Skip this step</string>
+
+    <!-- Activity 3 -->
+    <string name="step3_header">Step 3 of 4 - Hostel</string>
+    <string name="step3_hint">Choose where you would like to stay. You can do this offline.</string>
+    <string name="label_hostel_location">Hostel location</string>
+    <string name="label_room_type">Room type</string>
+    <string name="label_sharing">Sharing</string>
+    <string name="sharable">Sharable</string>
+    <string name="not_sharable">Not sharable</string>
+    <string name="btn_save_hostel">Save hostel choice</string>
+
+    <!-- Activity 4 -->
+    <string name="step4_header">Step 4 of 4 - Pay fees</string>
+    <string name="step4_hint">Your registration is only confirmed after the M-Pesa payment goes through. This step needs an internet connection.</string>
+    <string name="hint_phone">M-Pesa phone number (e.g. 0712345678)</string>
+    <string name="hint_amount">Amount (Kshs)</string>
+    <string name="btn_pay">Pay with M-Pesa</string>
+    <string name="btn_check_status">Check payment status</string>
+    <string name="btn_go_summary">View my registration summary</string>
+    <string name="pay_idle">Enter your phone number and amount, then tap Pay.</string>
+
+    <!-- Summary -->
+    <string name="summary_header">Registration summary</string>
+    <string name="summary_hint">Print or save as PDF a summary for one student, or for every student registered on this system.</string>
+    <string name="btn_show_mine">Show and print my summary</string>
+    <string name="btn_print_all">Print all registered students</string>
+    <string name="preview_empty">Your summary will appear here.</string>
+</resources>

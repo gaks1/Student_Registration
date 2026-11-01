@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_registration"
+        android:title="@string/menu_registration" />
+    <item
+        android:id="@+id/action_library"
+        android:title="@string/menu_library" />
+    <item
+        android:id="@+id/action_hostel"
+        android:title="@string/menu_hostel" />
+    <item
+        android:id="@+id/action_payment"
+        android:title="@string/menu_payment" />
+    <item
+        android:id="@+id/action_summary"
+        android:title="@string/menu_summary" />
+</menu>
