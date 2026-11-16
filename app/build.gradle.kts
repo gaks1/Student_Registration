@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.student_registration"
-        minSdk = 25
+        minSdk = 24
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
@@ -32,11 +32,12 @@ android {
 }
 
 dependencies {
-    implementation(libs.activity.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.constraintlayout)
-    implementation(libs.material)
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
+    implementation("com.google.firebase:firebase-database")
+
     testImplementation(libs.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
 }

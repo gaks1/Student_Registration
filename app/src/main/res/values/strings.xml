@@ -1,3 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Student_Registration</string>
+    <string name="app_name">Student Registration</string>
+    <string name="activity_one_title">1st Activity - Student Registration</string>
+    <string name="header_registration">First Year Student Registration</string>
+
+    <string name="label_full_names">Full Names</string>
+    <string name="hint_full_names">Enter full names (e.g. John Doe)</string>
+
+    <string name="label_id_no">ID Number</string>
+    <string name="hint_id_no">Enter national ID or Passport number</string>
+
+    <string name="label_reg_no">Registration Number</string>
+    <string name="hint_reg_no">Enter Registration Number (e.g. REG/001/2025)</string>
+
+    <string name="label_gender">Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_other">Other</string>
+
+    <string name="label_course">Course</string>
+    <string name="label_department">Department</string>
+
+    <string name="btn_register">Register Student</string>
+    <string name="btn_clear">Clear Form</string>
+
+    <string-array name="courses_array">
+        <item>-- Select Course --</item>
+        <item>BSc Computer Science</item>
+        <item>BSc Information Technology</item>
+        <item>BSc Software Engineering</item>
+        <item>BSc Business Information Technology</item>
+        <item>BSc Data Science &amp; Analytics</item>
+        <item>BSc Cybersecurity</item>
+    </string-array>
+
+    <string-array name="departments_array">
+        <item>-- Select Department --</item>
+        <item>Department of Computer Science</item>
+        <item>Department of Information Technology</item>
+        <item>Department of Software Engineering</item>
+        <item>Department of Mathematics &amp; Statistics</item>
+        <item>Department of Business Studies</item>
+    </string-array>
 </resources>

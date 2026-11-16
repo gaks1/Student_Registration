@@ -1,19 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/header_registration"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1976D2"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvSubHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Offline-Capable First Year Admission System"
+            android:textSize="13sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- i. Full Names -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFullNames"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_full_names"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFullNames"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- ii. IDNo -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilIdNo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_id_no"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etIdNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- iii. Registration Number -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilRegNo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_reg_no"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etRegNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- iv. Gender (Radio Buttons) -->
+                <TextView
+                    android:id="@+id/tvGenderLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_gender"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="6dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <RadioButton
+                        android:id="@+id/rbMale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/gender_male" />
+
+                    <RadioButton
+                        android:id="@+id/rbFemale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/gender_female" />
+
+                    <RadioButton
+                        android:id="@+id/rbOther"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/gender_other" />
+                </RadioGroup>
+
+                <!-- v. Course (Drop down list box) -->
+                <TextView
+                    android:id="@+id/tvCourseLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_course"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="6dp" />
+
+                <Spinner
+                    android:id="@+id/spCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- vi. Department (Drop down list box) -->
+                <TextView
+                    android:id="@+id/tvDeptLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_department"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="6dp" />
+
+                <Spinner
+                    android:id="@+id/spDepartment"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnClear"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/btn_clear"
+                        android:layout_marginEnd="8dp" />
+
+                    <Button
+                        android:id="@+id/btnRegister"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/btn_register"
+                        android:backgroundTint="#1976D2"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
