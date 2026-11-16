@@ -7,6 +7,9 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+# IDE-local Gradle JDK / distribution choice. Machine-specific: committing it
+# makes branch switches carry a stale Gradle version or JDK path with them.
+/.idea/gradle.xml
 .DS_Store
 /build
 /captures
