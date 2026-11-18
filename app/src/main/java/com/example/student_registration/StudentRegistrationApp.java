@@ -4,8 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class StudentRegistrationApp extends Application {
     private static final String TAG = "StudentRegistrationApp";
@@ -14,22 +13,20 @@ public class StudentRegistrationApp extends Application {
     public void onCreate() {
         super.onCreate();
         try {
-            // Initialize Firebase if not already initialized
             FirebaseApp.initializeApp(this);
 
-            // Enable offline persistence for Firebase Realtime Database.
-            // This ensures all registrations performed while offline are saved locally
-            // and automatically synced to the server when network connectivity resumes.
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            database.setPersistenceEnabled(true);
-
-            // Keep the "students" reference synced offline
-            DatabaseReference studentsRef = database.getReference("students");
-            studentsRef.keepSynced(true);
-
-            Log.d(TAG, "Firebase Offline Persistence Enabled Successfully.");
+            // Cloud Firestore keeps a persistent local disk cache by default on Android.
+            // That default is exactly what makes offline registration work: every write is
+            // saved locally straight away, and Firestore uploads it automatically once the
+            // connection returns. We deliberately do NOT override the cache settings here,
+            // because replacing them with a memory-only cache would break the offline
+            // requirement. The getter below is only used to confirm initialisation succeeded.
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+            Log.d(TAG, "Firestore initialized. Database: "
+                    + firestore.getFirestoreSettings().getHost()
+                    + " | offline writes are queued locally and uploaded when reconnected.");
         } catch (Exception e) {
-            Log.e(TAG, "Error configuring Firebase offline persistence: " + e.getMessage(), e);
+            Log.e(TAG, "Firebase initialization FAILED: " + e.getMessage(), e);
         }
     }
 }

@@ -10,6 +10,9 @@
 # IDE-local Gradle JDK / distribution choice. Machine-specific: committing it
 # makes branch switches carry a stale Gradle version or JDK path with them.
 /.idea/gradle.xml
+# Firebase config. Each developer uses their own Firebase project; see
+# app/google-services.json.example for setup instructions.
+/app/google-services.json
 .DS_Store
 /build
 /captures

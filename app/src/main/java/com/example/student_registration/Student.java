@@ -6,39 +6,32 @@ import java.util.Map;
 
 /**
  * Data model for a First Year Student Registration.
- * Standard Java POJO with default constructor required for Firebase Realtime Database.
+ * Stored in Cloud Firestore at students/{idNo}.
+ * The document ID carries the student's ID number, so there is no separate id field.
+ * Field names match the shared schema used across the team's activities.
  */
 public class Student implements Serializable {
-    private String id;
     private String fullNames;
     private String idNo;
     private String regNo;
     private String gender;
     private String course;
     private String department;
-    private long timestamp;
+    private long createdAt;
 
     // Required default constructor for Firebase deserialization
     public Student() {
     }
 
-    public Student(String id, String fullNames, String idNo, String regNo, String gender, String course, String department, long timestamp) {
-        this.id = id;
+    public Student(String fullNames, String idNo, String regNo, String gender,
+                   String course, String department, long createdAt) {
         this.fullNames = fullNames;
         this.idNo = idNo;
         this.regNo = regNo;
         this.gender = gender;
         this.course = course;
         this.department = department;
-        this.timestamp = timestamp;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.createdAt = createdAt;
     }
 
     public String getFullNames() {
@@ -89,24 +82,23 @@ public class Student implements Serializable {
         this.department = department;
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public long getCreatedAt() {
+        return createdAt;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("id", id);
         result.put("fullNames", fullNames);
         result.put("idNo", idNo);
         result.put("regNo", regNo);
         result.put("gender", gender);
         result.put("course", course);
         result.put("department", department);
-        result.put("timestamp", timestamp);
+        result.put("createdAt", createdAt);
         return result;
     }
 }

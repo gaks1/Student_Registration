@@ -1,0 +1,50 @@
+{
+  "_README": [
+    "This is a PLACEHOLDER, not a working Firebase config.",
+    "",
+    "This project does not ship a shared google-services.json on purpose:",
+    "Realtime Database data belongs to a specific Firebase project, so every",
+    "developer should point at their OWN Firebase project (or one they have",
+    "been explicitly added to).",
+    "",
+    "Setup:",
+    "  1. Create a Firebase project at https://console.firebase.google.com",
+    "  2. Add an Android app with package name: com.example.student_registration",
+    "     (it must match applicationId in app/build.gradle.kts exactly)",
+    "  3. Enable Realtime Database and create the database",
+    "  4. Download google-services.json and place it at: app/google-services.json",
+    "     (this file is gitignored, so it will not be committed)",
+    "  5. Rebuild the app.",
+    "",
+    "If you see 'File google-services.json is missing' at build time, step 4.",
+    "If the app crashes with 'Failed to get app instance' at runtime, the file is",
+    "present but does not contain a client entry for the app's package name."
+  ],
+  "project_info": {
+    "project_number": "000000000000",
+    "project_id": "your-firebase-project-id",
+    "storage_bucket": "your-firebase-project-id.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+        "android_client_info": {
+          "package_name": "com.example.student_registration"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "REPLACE_WITH_YOUR_API_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

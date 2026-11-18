@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Student_Registration" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <!--
+        Light theme only. The layouts use light surfaces (#FFFFFF cards on a #F5F5F5
+        background), so inheriting from the DayNight theme previously produced
+        near-white text on white cards whenever the device was in dark mode.
+
+        Using Theme.MaterialComponents.Light.* guarantees readable field text and
+        labels regardless of the device setting.
+    -->
+    <style name="Theme.Student_Registration" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#1976D2</item>
         <item name="colorPrimaryVariant">#1565C0</item>
         <item name="colorOnPrimary">#FFFFFF</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">#03DAC6</item>
-        <item name="colorSecondaryVariant">#018786</item>
-        <item name="colorOnSecondary">#000000</item>
+        <!-- Secondary brand color: a blue variant so ripples/pressed states match the buttons. -->
+        <item name="colorSecondary">#1976D2</item>
+        <item name="colorSecondaryVariant">#1565C0</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <!-- Explicit light surfaces and text colours so nothing depends on the parent theme. -->
+        <item name="android:colorBackground">#F5F5F5</item>
+        <item name="colorOnBackground">#212121</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+
+        <!-- Text input styling -->
+        <item name="colorControlActivated">#1976D2</item>
+        <item name="colorControlHighlight">#331976D2</item>
+        <item name="colorAccent">#1976D2</item>
+
+        <item name="android:statusBarColor">#1565C0</item>
     </style>
 </resources>

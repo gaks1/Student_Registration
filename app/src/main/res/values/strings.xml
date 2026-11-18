@@ -23,6 +23,18 @@
 
     <string name="btn_register">Register Student</string>
     <string name="btn_clear">Clear Form</string>
+    <string name="btn_next_library">Next: Library Book Request →</string>
+
+    <string name="library_header">Library Book Request</string>
+    <string name="label_isbn">Book ISBN</string>
+    <string name="label_author">Author</string>
+    <string name="label_title">Title</string>
+    <string name="label_date_borrowed">Date Borrowed</string>
+    <string name="label_date_return">Date of Return</string>
+    <string name="label_student_idno">Student ID Number</string>
+    <string name="btn_request_book">Request Book</string>
+    <string name="btn_clear_form">Clear Form</string>
+    <string name="hint_pick_date">Tap to pick a date</string>
 
     <string-array name="courses_array">
         <item>-- Select Course --</item>
