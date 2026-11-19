@@ -2,6 +2,7 @@ package com.example.student_registration;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -40,7 +41,7 @@ public class LibraryActivity extends AppCompatActivity {
 
     private TextInputEditText etIsbn, etAuthor, etTitle, etDateBorrowed, etDateReturn, etStudentIdNo;
     private TextInputLayout tilIsbn, tilAuthor, tilTitle, tilDateBorrowed, tilDateReturn, tilStudentIdNo;
-    private Button btnRequestBook, btnClearLibrary;
+    private Button btnRequestBook, btnClearLibrary, btnNextHostel;
 
     private final SimpleDateFormat dateFormat =
             new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -73,6 +74,7 @@ public class LibraryActivity extends AppCompatActivity {
 
         btnRequestBook = findViewById(R.id.btnRequestBook);
         btnClearLibrary = findViewById(R.id.btnClearLibrary);
+        btnNextHostel = findViewById(R.id.btnNextHostel);
     }
 
     /** Carries the ID number over from Activity 1 so the student does not retype it. */
@@ -97,6 +99,28 @@ public class LibraryActivity extends AppCompatActivity {
                 clearForm();
             }
         });
+
+        btnNextHostel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToHostel();
+            }
+        });
+    }
+
+    private void goToHostel() {
+        String idNo = textOf(etStudentIdNo);
+        if (TextUtils.isEmpty(idNo)) {
+            tilStudentIdNo.setError("Enter a Student ID Number to continue to Hostel selection");
+            etStudentIdNo.requestFocus();
+            Toast.makeText(this, "Enter a Student ID Number to continue.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        tilStudentIdNo.setError(null);
+
+        Intent intent = new Intent(LibraryActivity.this, HostelActivity.class);
+        intent.putExtra(HostelActivity.EXTRA_STUDENT_ID_NO, idNo);
+        startActivity(intent);
     }
 
     private void setupDatePickers() {

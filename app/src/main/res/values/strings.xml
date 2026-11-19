@@ -25,6 +25,7 @@
     <string name="btn_clear">Clear Form</string>
     <string name="btn_next_library">Next: Library Book Request →</string>
 
+    <!-- 2nd Activity: Library -->
     <string name="library_header">Library Book Request</string>
     <string name="label_isbn">Book ISBN</string>
     <string name="label_author">Author</string>
@@ -35,6 +36,17 @@
     <string name="btn_request_book">Request Book</string>
     <string name="btn_clear_form">Clear Form</string>
     <string name="hint_pick_date">Tap to pick a date</string>
+    <string name="btn_next_hostel">Next: Hostel Selection →</string>
+
+    <!-- 3rd Activity: Hostel -->
+    <string name="hostel_header">Hostel Selection</string>
+    <string name="hostel_sub_header">3rd Activity - Select Hostel Information</string>
+    <string name="label_hostel_location">Hostel Location</string>
+    <string name="label_room_type">Room Type</string>
+    <string name="label_sharable">Sharable Room</string>
+    <string name="sharable_yes">Sharable</string>
+    <string name="sharable_no">Not Sharable</string>
+    <string name="btn_save_hostel">Save Hostel Choice</string>
 
     <string-array name="courses_array">
         <item>-- Select Course --</item>
@@ -53,5 +65,25 @@
         <item>Department of Software Engineering</item>
         <item>Department of Mathematics &amp; Statistics</item>
         <item>Department of Business Studies</item>
+    </string-array>
+
+    <string-array name="hostel_locations_array">
+        <item>-- Select Hostel Location --</item>
+        <item>USIU Campus Hostels</item>
+        <item>Thome Estate</item>
+        <item>Roysambu</item>
+        <item>Kasarani</item>
+        <item>Garden Estate</item>
+        <item>Ruaraka</item>
+        <item>Zimmerman</item>
+    </string-array>
+
+    <string-array name="room_types_array">
+        <item>-- Select Room Type --</item>
+        <item>Bedsitter</item>
+        <item>1 Bedroom</item>
+        <item>2 Bedroom</item>
+        <item>3 Bedroom</item>
+        <item>Single Room</item>
     </string-array>
 </resources>
