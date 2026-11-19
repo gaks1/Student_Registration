@@ -35,6 +35,13 @@
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".HostelActivity"
+            android:exported="false"
+            android:label="@string/hostel_header"
+            android:parentActivityName=".LibraryActivity"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
