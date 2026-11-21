@@ -48,6 +48,22 @@
     <string name="sharable_no">Not Sharable</string>
     <string name="btn_save_hostel">Save Hostel Choice</string>
 
+    <!-- 4th Activity: Fee payment (M-Pesa) -->
+    <string name="payment_header">Fee Payment</string>
+    <string name="step4_header">4th Activity - Pay Fees</string>
+    <string name="step4_hint">Enter your ID number, M-Pesa number and the amount. An M-Pesa prompt will appear on your phone to confirm the payment.</string>
+    <string name="hint_student_id_no">Student ID Number</string>
+    <string name="hint_phone">M-Pesa Number (e.g. 2547XXXXXXXX)</string>
+    <string name="hint_amount">Amount (KShs)</string>
+    <string name="btn_pay">Pay Fees</string>
+    <string name="btn_check_status">Check Payment Status</string>
+    <string name="btn_go_summary">View Registration Summary</string>
+    <string name="pay_idle">Enter your details above, then tap Pay Fees.</string>
+
+    <!-- Sync status banner -->
+    <string name="sync_online">Online - changes sync immediately</string>
+    <string name="sync_offline">Offline - changes saved on this device and will sync later</string>
+
     <string-array name="courses_array">
         <item>-- Select Course --</item>
         <item>BSc Computer Science</item>

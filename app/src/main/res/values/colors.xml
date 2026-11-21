@@ -7,4 +7,22 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--
+        Shared palette used by the styles in values/styles.xml and by the
+        Activity 3 / Activity 4 layouts. Kept in step with the theme in themes.xml.
+    -->
+    <color name="primary">#1976D2</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="primary_light">#63A4FF</color>
+
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+
+    <color name="background">#F5F5F5</color>
+    <color name="card_background">#FFFFFF</color>
+
+    <!-- Sync banner states -->
+    <color name="sync_online">#2E7D32</color>
+    <color name="sync_offline">#F57C00</color>
 </resources>
