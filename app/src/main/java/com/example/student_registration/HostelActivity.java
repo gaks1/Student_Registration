@@ -1,6 +1,7 @@
 package com.example.student_registration;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -42,7 +43,7 @@ public class HostelActivity extends AppCompatActivity {
     private RadioGroup rgSharable;
     private TextInputEditText etStudentIdNo;
     private TextInputLayout tilStudentIdNo;
-    private Button btnSaveHostel, btnClearHostel;
+    private Button btnSaveHostel, btnClearHostel, btnNextPayment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class HostelActivity extends AppCompatActivity {
         tilStudentIdNo = findViewById(R.id.tilStudentIdNo);
         btnSaveHostel = findViewById(R.id.btnSaveHostel);
         btnClearHostel = findViewById(R.id.btnClearHostel);
+        btnNextPayment = findViewById(R.id.btnNextPayment);
     }
 
     private void setupSpinners() {
@@ -86,6 +88,28 @@ public class HostelActivity extends AppCompatActivity {
     private void setupListeners() {
         btnSaveHostel.setOnClickListener(v -> saveHostelChoice());
         btnClearHostel.setOnClickListener(v -> clearForm());
+        btnNextPayment.setOnClickListener(v -> goToPayment());
+    }
+
+    /**
+     * Opens Activity 4 (fee payment), passing the ID number so the payment screen can be
+     * pre-filled without the student retyping it.
+     */
+    private void goToPayment() {
+        String idNo = textOf(etStudentIdNo);
+        if (TextUtils.isEmpty(idNo)) {
+            tilStudentIdNo.setError("Enter the Student ID Number first");
+            etStudentIdNo.requestFocus();
+            Toast.makeText(this,
+                    "Enter the Student ID Number first, then continue to payment.",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+        tilStudentIdNo.setError(null);
+
+        Intent intent = new Intent(HostelActivity.this, PaymentActivity.class);
+        intent.putExtra(PaymentActivity.EXTRA_STUDENT_ID_NO, idNo);
+        startActivity(intent);
     }
 
     private void prefillStudentId() {

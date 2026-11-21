@@ -47,6 +47,7 @@
     <string name="sharable_yes">Sharable</string>
     <string name="sharable_no">Not Sharable</string>
     <string name="btn_save_hostel">Save Hostel Choice</string>
+    <string name="btn_next_payment">Next: Pay Fees →</string>
 
     <!-- 4th Activity: Fee payment (M-Pesa) -->
     <string name="payment_header">Fee Payment</string>

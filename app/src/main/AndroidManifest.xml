@@ -42,6 +42,13 @@
             android:parentActivityName=".LibraryActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false"
+            android:label="@string/payment_header"
+            android:parentActivityName=".HostelActivity"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
