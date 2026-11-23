@@ -165,7 +165,22 @@ public class HostelActivity extends AppCompatActivity {
 
         boolean online = isOnline();
 
-        // 6. Verify that the student document exists first (students/{studentIdNo})
+        // 6. Verify that the student document exists first (students/{studentIdNo}).
+        //
+        //    Firestore READS fail when offline and the document is not cached, while WRITES
+        //    always succeed locally. Gating the write behind the read would block offline
+        //    use, which contradicts the offline requirement. So verify when possible, and
+        //    allow the write when verification is impossible.
+        final String finalLocation = location;
+        final String finalRoomType = roomType;
+        final boolean finalSharable = sharable;
+
+        if (!online) {
+            saveBookingToFirestore(firestore, buildBooking(studentIdNo, finalLocation,
+                    finalRoomType, finalSharable), online);
+            return;
+        }
+
         firestore.collection(COLLECTION_STUDENTS).document(studentIdNo).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (!documentSnapshot.exists()) {
@@ -175,16 +190,27 @@ public class HostelActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                         return;
                     }
-                    saveBookingToFirestore(firestore, new HostelBooking(
-                            studentIdNo, location, roomType, sharable, System.currentTimeMillis()
-                    ), online);
+                    saveBookingToFirestore(firestore, buildBooking(studentIdNo, finalLocation,
+                            finalRoomType, finalSharable), online);
                 })
                 .addOnFailureListener(e -> {
-                    Log.e(TAG, "Could not verify student: " + e.getMessage(), e);
+                    // Read failed despite a network being reported (e.g. captive portal).
+                    // Do not discard the student's choice: save it for later sync.
+                    Log.w(TAG, "Student verification failed, saving offline-style: "
+                            + e.getMessage(), e);
                     Toast.makeText(HostelActivity.this,
-                            "Could not verify student: " + e.getMessage(),
+                            "Could not verify the student, but the hostel choice has been "
+                                    + "saved on this device and will sync later.",
                             Toast.LENGTH_LONG).show();
+                    saveBookingToFirestore(firestore, buildBooking(studentIdNo, finalLocation,
+                            finalRoomType, finalSharable), false);
                 });
+    }
+
+    private HostelBooking buildBooking(String studentIdNo, String location, String roomType,
+                                       boolean sharable) {
+        return new HostelBooking(studentIdNo, location, roomType, sharable,
+                System.currentTimeMillis());
     }
 
     private void saveBookingToFirestore(FirebaseFirestore firestore,

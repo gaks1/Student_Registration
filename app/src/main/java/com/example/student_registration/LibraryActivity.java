@@ -195,8 +195,21 @@ public class LibraryActivity extends AppCompatActivity {
 
         boolean online = isOnline();
 
-        // 3. A library request only makes sense for a student who has registered.
-        //    Check for the students/{idNo} document first.
+        // 3. A library request should normally only be made for a registered student.
+        //    However, Firestore READS fail when offline and the document is not cached,
+        //    whereas WRITES always succeed locally. Gating the write behind the read would
+        //    therefore block offline use entirely - which contradicts the core requirement
+        //    that a student can register from anywhere, including with no connectivity.
+        //
+        //    So: verify the student when we can, and allow the write when we cannot.
+        //    The write is still validated server-side once it syncs if stricter rules are
+        //    ever added in the Firestore console.
+        if (!online) {
+            saveRequest(firestore, buildRequest(isbn, author, title, dateBorrowed,
+                    dateReturn, studentIdNo), online);
+            return;
+        }
+
         firestore.collection(COLLECTION_STUDENTS).document(studentIdNo).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (!documentSnapshot.exists()) {
@@ -206,17 +219,28 @@ public class LibraryActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                         return;
                     }
-                    saveRequest(firestore, new LibraryRequest(
-                            isbn, author, title, dateBorrowed, dateReturn, studentIdNo,
-                            System.currentTimeMillis()), online);
+                    saveRequest(firestore, buildRequest(isbn, author, title, dateBorrowed,
+                            dateReturn, studentIdNo), online);
                 })
                 .addOnFailureListener(e -> {
-                    // Reading can also fail when offline with an empty cache.
-                    Log.e(TAG, "Could not verify student: " + e.getMessage(), e);
+                    // The read failed even though a network was reported as available
+                    // (e.g. captive portal). Do not lose the student's work: save anyway.
+                    Log.w(TAG, "Student verification failed, saving offline-style: "
+                            + e.getMessage(), e);
                     Toast.makeText(LibraryActivity.this,
-                            "Could not verify the student: " + e.getMessage(),
+                            "Could not verify the student, but the request has been saved "
+                                    + "on this device and will sync later.",
                             Toast.LENGTH_LONG).show();
+                    saveRequest(firestore, buildRequest(isbn, author, title, dateBorrowed,
+                            dateReturn, studentIdNo), false);
                 });
+    }
+
+    private LibraryRequest buildRequest(String isbn, String author, String title,
+                                        String dateBorrowed, String dateReturn,
+                                        String studentIdNo) {
+        return new LibraryRequest(isbn, author, title, dateBorrowed, dateReturn,
+                studentIdNo, System.currentTimeMillis());
     }
 
     private void saveRequest(FirebaseFirestore firestore,
